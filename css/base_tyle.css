@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap");
+
+/* ----------------------------- */
+/* A változók beállítása         */
+/* ----------------------------- */
+@property --color-dark-red {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(120, 0, 0, 1);
+}
+@property --color-light-red {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(193, 18, 31, 1);
+}
+@property --color-butter {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(253, 240, 213, 0.7);
+}
+@property --color-black {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(0, 0, 0, 0.8);
+}
+@property --color-dark-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(0, 48, 73, 1);
+}
+@property --color-light-blue {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(102, 155, 188, 0.6);
+}
+
+/* ----------------------------- */
+/* A RESET beállítása            */
+/* ----------------------------- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  text-decoration: none;
+  list-style: none;
+}
+textarea,
+input {
+  border: 0;
+  outline: 0;
+}
+
+/* ----------------------------- */
+/* A HTML és alap beállítások    */
+/* ----------------------------- */
+* {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  min-width: 300px;
+  height: 300vh;
+  background-image: url("../resources/background2.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  /*   transition: 0.8s linear; */
+}
+
+/* ---------------------------------- */
+/* Az általános stílusok beállítása   */
+/* ---------------------------------- */
+.blend-mix-button {
+  color: var(--color-black);
+  filter: drop-shadow(0 0 3px var(--color-dark-blue));
+  transition: all 0.5s;
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  &:hover {
+    color: var(--color-dark-red);
+    filter: drop-shadow(0 0 3px var(--color-dark-red));
+  }
+}
+.basic-element-design {
+  backdrop-filter: blur(4px);
+  mix-blend-mode: screen;
+  background-color: var(--color-butter);
+  padding: 1rem;
+}
+
+/* ----------------------------- */
+/* A HEADER elemeinek beállítása */
+/* ----------------------------- */
+header {
+  /*     grid-area: HEADER; */
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 2rem);
+  height: 11vh;
+  margin: 1rem;
+  z-index: 100;
+  & .logo {
+    height: 100%;
+    & h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+  }
+  & .social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    & svg {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  & nav {
+    & .menu {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      /*       & li a {
+        font-size: 1.5rem;
+        font-weight: 900;
+      } */
+    }
+  }
+}
+/* ----------------------------- */
+/* A MAIN elemeinek beállítása   */
+/* ----------------------------- */
+main {
+  margin: 18vh 1rem 1rem 1rem;
+  & h2 {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  & p {
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+  & .button-part,
+  & .icon-part {
+    display: flex;
+    justify-content: space-between;
+  }
+  & .banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    width: 50%;
+    margin: 1rem 0;
+  }
+  & .video {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    gap: 1rem;
+    width: 50%;
+    margin: 1rem 0;
+  }
+}
+/* ----------------------------- */
+/* A FOOTER elemeinek beállítása */
+/* ----------------------------- */
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem;
+  z-index: 100;
+  & .logo {
+    height: 100%;
+    & h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+  }
+  & .footer-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & a {
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+  }
+}
