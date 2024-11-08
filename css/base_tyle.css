@@ -128,11 +128,19 @@ header {
   & .social {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    & svg {
-      width: 1.8rem;
+    & .phone-number {
+      display: none;
+      color: var(--color-black);
+    }
+    & a {
       height: 1.8rem;
-      padding: 0;
+      & svg {
+        width: 1.8rem;
+        height: 1.8rem;
+        padding: 0;
+      }
     }
   }
   & nav {
@@ -195,7 +203,7 @@ header {
 /* A MAIN elemeinek beállítása   */
 /* ----------------------------- */
 main {
-  margin: 170px 1rem 1rem 1rem;
+  margin: 132px 1rem 1rem 1rem;
   & h2 {
     font-size: 1.8rem;
     font-weight: 900;
@@ -217,18 +225,33 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    width: clamp(280px, 60%, 60%);
+    width: clamp(275px, 60%, 60%);
     margin: 1rem 0;
   }
   & .video,
   & .pricing {
     position: relative;
-    left: min(40%, calc(100% - 280px));
+    left: min(40%, calc(100% - 275px));
   }
   & .pricing-card-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 0.8rem;
+    & .pricing-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.5rem;
+      border: 3px solid var(--color-black);
+      & .bottom-part {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        & a {
+          align-self: center;
+        }
+      }
+    }
   }
 }
 /* ----------------------------- */
@@ -277,17 +300,33 @@ footer {
     }
   }
   main {
-    margin: 130px 1rem 1rem 1rem;
+    margin: 92px 1rem 1rem 1rem;
   }
 }
 @media screen and (min-width: 768px) {
   * {
-    font-size: 20px;
+    font-size: 18px;
+  }
+  main {
+    margin: 112px 1rem 1rem 1rem;
   }
 }
 @media screen and (min-width: 1024px) {
   header {
     justify-content: space-between;
+    & .social {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      row-gap: 0.2rem;
+      & .phone-number {
+        display: block;
+        grid-column: 1 / 4;
+      }
+      & .phone-icon {
+        display: none;
+      }
+    }
+
     & nav {
       & .toggle {
         display: none;
@@ -300,6 +339,22 @@ footer {
         background-color: inherit;
         padding: 0;
         gap: 0;
+      }
+    }
+  }
+  main {
+    margin: 136px 1rem 1rem 1rem;
+    & .pricing-card-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      & .pricing-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 48%;
+        padding: 0.5rem;
+        border: 3px solid var(--color-black);
       }
     }
   }
