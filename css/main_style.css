@@ -3,35 +3,20 @@
 /* ----------------------------- */
 /* A változók beállítása         */
 /* ----------------------------- */
-@property --color-dark-red {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(120, 0, 0, 1);
-}
-@property --color-light-red {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(193, 18, 31, 1);
-}
-@property --color-butter {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(253, 240, 213, 0.7);
-}
-@property --color-black {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(0, 0, 0, 0.8);
-}
-@property --color-dark-blue {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(0, 48, 73, 1);
-}
-@property --color-light-blue {
-  syntax: "<color>";
-  inherits: true;
-  initial-value: rgba(102, 155, 188, 0.6);
+:root {
+  /* Színek: */
+  --color-dark-red: rgba(111, 0, 0, 1);
+  --color-light-red: rgba(193, 18, 31, 1);
+  --color-butter: rgba(253, 240, 213, 0.7);
+  --color-black: rgba(11, 11, 11, 0.8);
+  --color-dark-blue: rgba(0, 38, 80, 1);
+  --color-dark-green: rgb(18, 88, 88);
+  --color-hover: rgba(111, 0, 0, 1);
+  /* Dimenziók: */
+  --body-min-width: 300px;
+  --card-min-width: 275px;
+  /* Időtartamok */
+  --transition-duration: 0.5s;
 }
 
 /* ----------------------------- */
@@ -57,14 +42,14 @@ input {
 * {
   font-family: "Poppins", sans-serif;
   font-size: 13px;
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  /*   scroll-behavior: smooth;
+  scroll-padding-top: 80px; */
 }
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 body {
-  min-width: 300px;
+  min-width: var(--body-min-width);
   background-image: url("../resources/background2.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
@@ -77,20 +62,18 @@ body {
 /* ---------------------------------- */
 .blend-mix-button {
   color: var(--color-black);
-  /*   filter: drop-shadow(0 0 3px var(--color-black)); */
-  transition: all 0.5s;
+  transition: var(--transition-duration);
   font-size: 1.5rem;
-  font-weight: 900;
   padding-inline: 0.4rem;
   cursor: pointer;
   &:hover {
-    color: var(--color-dark-red);
-    filter: drop-shadow(0 0 3px var(--color-dark-red));
+    color: var(--color-hover);
+    filter: drop-shadow(0 0 3px var(--color-hover));
   }
   &.highlighted {
     border: 3px solid var(--color-black);
     &:hover {
-      border: 3px solid var(--color-dark-red);
+      border: 3px solid var(--color-hover);
     }
   }
 }
@@ -152,7 +135,7 @@ header {
       position: relative;
       height: 40px;
       width: 40px;
-      transition: all 0.5s linear;
+      transition: var(--transition-duration);
       cursor: pointer;
       & li {
         list-style: none;
@@ -161,7 +144,7 @@ header {
         height: 4px;
         background: var(--color-black);
         filter: drop-shadow(0 0 3px var(--color-dark-blue));
-        transition: all 0.5s linear;
+        transition: var(--transition-duration);
       }
       &:hover li {
         background: var(--color-dark-red);
@@ -188,11 +171,11 @@ header {
       top: 150px;
       right: -230px;
       gap: 0.8rem;
+      transition: var(--transition-duration);
       backdrop-filter: blur(4px);
       mix-blend-mode: screen;
       background-color: var(--color-butter);
       padding: 1rem;
-      transition: all 0.5s linear;
       &.menu-active {
         right: 0;
       }
@@ -206,7 +189,6 @@ main {
   margin: 132px 1rem 1rem 1rem;
   & h2 {
     font-size: 1.8rem;
-    font-weight: 900;
   }
   & p {
     font-size: 1.1rem;
@@ -225,13 +207,13 @@ main {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
-    width: clamp(275px, 60%, 60%);
+    width: clamp(var(--card-min-width), 60%, 60%);
     margin: 1rem 0;
   }
   & .video,
   & .pricing {
     position: relative;
-    left: min(40%, calc(100% - 275px));
+    left: min(40%, calc(100% - var(--card-min-width)));
   }
   & .pricing-card-container {
     display: flex;
@@ -269,7 +251,6 @@ footer {
     height: 100%;
     & a {
       font-size: 1.5rem;
-      font-weight: 900;
       padding: 0;
     }
   }
@@ -317,6 +298,7 @@ footer {
     & .social {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
       row-gap: 0.2rem;
       & .phone-number {
         display: block;
