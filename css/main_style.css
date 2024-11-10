@@ -15,6 +15,10 @@
   /* Dimenziók: */
   --body-min-width: 300px;
   --card-min-width: 275px;
+  --content-top-0: 132px;
+  --content-top-500: 92px;
+  --content-top-768: 112px;
+  --content-top-1024: 136px;
   /* Időtartamok */
   --transition-duration: 0.5s;
 }
@@ -168,7 +172,7 @@ header {
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 150px;
+      top: calc(var(--content-top-0) - 1rem);
       right: -230px;
       gap: 0.8rem;
       transition: var(--transition-duration);
@@ -186,7 +190,7 @@ header {
 /* A MAIN elemeinek beállítása   */
 /* ----------------------------- */
 main {
-  margin: 132px 1rem 1rem 1rem;
+  margin: var(--content-top-0) 1rem 1rem 1rem;
   & h2 {
     font-size: 1.8rem;
   }
@@ -276,20 +280,27 @@ footer {
   header {
     & nav {
       & .menu {
-        top: 110px;
+        top: calc(var(--content-top-500) - 1rem);
       }
     }
   }
   main {
-    margin: 92px 1rem 1rem 1rem;
+    margin: var(--content-top-500) 1rem 1rem 1rem;
   }
 }
 @media screen and (min-width: 768px) {
   * {
     font-size: 18px;
   }
+  header {
+    & nav {
+      & .menu {
+        top: calc(var(--content-top-768) - 1rem);
+      }
+    }
+  }
   main {
-    margin: 112px 1rem 1rem 1rem;
+    margin: var(--content-top-768) 1rem 1rem 1rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -325,7 +336,7 @@ footer {
     }
   }
   main {
-    margin: 136px 1rem 1rem 1rem;
+    margin: var(--content-top-1024) 1rem 1rem 1rem;
     & .pricing-card-container {
       display: flex;
       flex-direction: row;
