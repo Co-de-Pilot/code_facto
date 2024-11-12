@@ -54,7 +54,7 @@ input {
 } */
 body {
   min-width: var(--body-min-width);
-  background-image: url("../resources/background2.jpg");
+  background-image: url("../resources/background.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
